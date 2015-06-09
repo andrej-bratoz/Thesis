@@ -156,7 +156,7 @@ namespace MetaInspector.Logic
             var mod = "";
             if (info.IsPrivate) mod += "private";
             if (info.IsPublic) mod += "public";
-            if (info.IsStatic) mod += "static";
+            if (info.IsStatic) mod += " static";
             return mod;
         }
        
