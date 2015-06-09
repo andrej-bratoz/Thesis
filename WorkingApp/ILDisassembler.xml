@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ILDisassembler</name>
+    </assembly>
+    <members>
+        <member name="T:ILDisassembler.CollectionHelpers">
+            <summary>
+            Constains helper methods for collections
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.CollectionHelpers.AddMulti``2(System.Collections.Generic.IDictionary{``0,System.Collections.Generic.IList{``1}},``0,``1)">
+            <summary>
+            Addds a mapping for the given key to value in a multi-value dictionary
+            </summary>
+            <typeparam name="TKey">The type of the key</typeparam>
+            <typeparam name="TValue">The type of the value</typeparam>
+            <param name="dict">The dictionary</param>
+            <param name="key">The key</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:ILDisassembler.DisassembledType">
+            <summary>
+            Represents a disassembled type
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.DisassembledType.#ctor(System.Type,System.String,System.Collections.Immutable.IImmutableList{System.String},System.Collections.Immutable.IImmutableList{System.String},System.Collections.Immutable.IImmutableList{System.String},System.Collections.Immutable.IImmutableList{System.String})">
+            <summary>
+            Creates a new disassembled type
+            </summary>
+            <param name="type">The type</param>
+            <param name="typeHeader">The type header</param>
+            <param name="fields">The fields</param>
+            <param name="properties">The properties</param>
+            <param name="events">The events</param>
+            <param name="methods">The methods</param>
+        </member>
+        <member name="M:ILDisassembler.DisassembledType.ToString">
+            <summary>
+            Returns the disassembled type as a string
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.DisassembledType.Type">
+            <summary>
+            The type
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.DisassembledType.TypeHeader">
+            <summary>
+            The type header
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.DisassembledType.Fields">
+            <summary>
+            Returns the fields
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.DisassembledType.Properties">
+            <summary>
+            Returns the properties
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.DisassembledType.Events">
+            <summary>
+            Returns the events
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.DisassembledType.Methods">
+            <summary>
+            Returns the methods
+            </summary>
+        </member>
+        <member name="T:ILDisassembler.Disassembler">
+            <summary>
+            Represents an IL dissasembler
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetParameterName(System.Reflection.ParameterInfo)">
+            <summary>
+            Returns the name for the given parameter
+            </summary>
+            <param name="parameter">The parameter</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetAssemblyShortName(System.Reflection.Assembly)">
+            <summary>
+            Returns the short name for an assembly
+            </summary>
+            <param name="assembly">The assembly</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetTypeName(System.Reflection.Assembly,System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            Returns the type name for the given type
+            </summary>
+            <param name="currentAssembly">Current assembly</param>
+            <param name="type">The type</param>
+            <param name="useAliases">Indicates if to use type aliases</param>
+            <param name="useAliasOnParams">Indicates if to use type aliases on params if useAliases is false</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetCustomAttribute(System.Reflection.Assembly,System.Reflection.CustomAttributeData)">
+            <summary>
+            Returns the given custom attribute as a string
+            </summary>
+            <param name="currentAssembly">The current assembly</param>
+            <param name="customAttribute">The custom attribute</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.EmitBlockPart(ILDisassembler.OutputWriter,ILDisassembler.Disassembler.BlockPart,System.String)">
+            <summary>
+            Emites a block part to the given output writer
+            </summary>
+            <param name="outputWriter">The output writer</param>
+            <param name="blockPart">The block part</param>
+            <param name="headerString">The header string</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetGenericParameters(System.Reflection.Assembly,System.Type[])">
+            <summary>
+            Returns the generic parameters
+            </summary>
+            <param name="currentAssembly">The current assembly</param>
+            <param name="genericParameters">The generic parameters</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetTypeIdentifier(System.Reflection.Assembly,System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            Returs the type identifier for the given type
+            </summary>
+            <param name="currentAssembly">The current assembly</param>
+            <param name="type">The type</param>
+            <param name="addSpacing">Indicates if to add spacing after the identifier if not empty</param>
+            <param name="isParameter">Indicates if the type is a parameter</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.GetMethodParameters(System.Reflection.MethodBase)">
+            <summary>
+            Returns the method parameters for the given method
+            </summary>
+            <param name="method">The method</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.DisassembleTypeHeader(System.Type)">
+            <summary>
+            Disassembles the given type header
+            </summary>
+            <param name="type">The type header</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.DisassembleMethodBody(ILDisassembler.OutputWriter,System.Reflection.MethodBase,System.Reflection.MethodBody)">
+            <summary>
+            Disassembles the given method body
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.DisassembleMethod(System.Reflection.MethodBase)">
+            <summary>
+            Disassembles the given method or constructor
+            </summary>
+            <param name="method">The method</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.DissassembleField(System.Reflection.FieldInfo)">
+            <summary>
+            Disasembles the given field
+            </summary>
+            <param name="field">The field</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.DissassembleProperty(System.Reflection.PropertyInfo)">
+            <summary>
+            Disassembles the given property
+            </summary>
+            <param name="property">The property</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.DissassembleEvent(System.Reflection.EventInfo)">
+            <summary>
+            Disassembles the given event
+            </summary>
+            <param name="eventInfo">The event</param>
+        </member>
+        <member name="M:ILDisassembler.Disassembler.Disassemble(System.Type)">
+            <summary>
+            Disassembles the given type
+            </summary>
+            <param name="type">The type</param>
+            <returns>The disassembled type</returns>
+        </member>
+        <member name="M:ILDisassembler.Instruction.GetAssemblyShortName(System.Reflection.Assembly)">
+            <summary>
+            Returns the short name for an assembly
+            </summary>
+            <param name="assembly">The assembly</param>
+        </member>
+        <member name="M:ILDisassembler.Instruction.GetTypeName(System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            Returns the type name for the given type
+            </summary>
+            <param name="type">The type</param>
+            <param name="useAliases">Indicates if to use type aliases</param>
+            <param name="useAliasOnParams">Indicates if to use type aliases on params if useAliases is false</param>
+        </member>
+        <member name="M:ILDisassembler.Instruction.GetTypeIdentifier(System.Type,System.Boolean)">
+            <summary>
+            Returs the type identifier for the given type
+            </summary>
+            <param name="type">The type</param>
+            <param name="addSpacing">Indicates if to add spacing after the identifier if not empty</param>
+        </member>
+        <member name="M:ILDisassembler.Instruction.OperandToString">
+            <summary>
+            Returns a string representation of the operand
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.Instruction.ToStringWithoutOperand">
+            <summary>
+            Returns a string representation without the operand
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.Instruction.ToString(System.Int32)">
+            <summary>
+            Returns a string representation of the current instruction with the maxmium amount of spacing between the instruction and operand
+            </summary>
+            <param name="maxSpacing">The max spacing</param>
+        </member>
+        <member name="M:ILDisassembler.ReflectionExtensions.IsCompilerGenerated(System.Reflection.MemberInfo)">
+            <summary>
+            Indicates if the current member is compiler generated
+            </summary>
+            <param name="member">The member</param>
+        </member>
+        <member name="M:ILDisassembler.MethodBodyReader.GetInstructions(System.Reflection.MethodBase)">
+            <summary>
+            Returns the instruction for the given method
+            </summary>
+            <param name="method">The method</param>
+        </member>
+        <member name="T:ILDisassembler.OutputWriter">
+            <summary>
+            Represents an output writer
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.#ctor(System.Int32)">
+            <summary>
+            Creates a new output writer
+            </summary>
+            <param name="indentationSize">The indentation size</param>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.Indent">
+            <summary>
+            Increases the indentation one level
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.Unindent">
+            <summary>
+            Decreases the indentation one level
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.AppendLine(System.String)">
+            <summary>
+            Appends a new line with indentation to the buffer
+            </summary>
+            <param name="str">The string to append</param>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.AppendIndentation">
+            <summary>
+            Appends indentation to the buffer
+            </summary>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.Append(System.String)">
+            <summary>
+            Appends the given string to the buffer
+            </summary>
+            <param name="str">The string to append</param>
+            <remarks>The string is appended without indentation</remarks>
+        </member>
+        <member name="M:ILDisassembler.OutputWriter.ToString">
+            <summary>
+            Returns the built string
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.OutputWriter.IndentationLevel">
+            <summary>
+            Returns the indentation level
+            </summary>
+        </member>
+        <member name="P:ILDisassembler.OutputWriter.IndentationSize">
+            <summary>
+            Returns the size (number of spaces) per indentation level
+            </summary>
+        </member>
+    </members>
+</doc>
