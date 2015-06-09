@@ -321,7 +321,6 @@ namespace MetaInspector
                     chart.Name = "Namespace Population Statistics";
                     ///////////////////////////////
                 }
-                Thread.Sleep(TimeSpan.FromSeconds(5));
                 string savePath = ConfigurationManager.AppSettings.Get("SavePath");
                 File.Delete(savePath);
                 workBook.SaveAs(savePath);
